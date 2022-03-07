@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>Animated Algorithms: Searching</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="site.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="site.js"></script>
+</head>
+
+<body>
+
+<a href="#" class="hidden">Skip navigation</a>
+<div id="header">
+    <img id="logo" src="images/logo.png" alt="Animated Algorithms logo">
+    <div id="logoTitle">Animated Algorithms: Searching
+        <div id="logoSubtitle">Stephen J. Garland</div>
+    </div>
+    <span id="navigation">
+        <a href="site.html">Introduction</a>
+        <a href="contents.html">Table of Contents</a>
+        <span class="dropdown">
+            <span onclick="toggleMenu()" class="dropdown-label">About &#9662;</span>
+            <span id="menu" class="dropdown-content">
+                <a href="author.html">The author</a>
+                <a href="website.html">This website</a>
+            </span>
+        </span>
+    </span>
+</div>
+
+<div id="topGuide">
+    <span class="nav"><a href="index.html">&larr; Introduction</a></span>
+    <span class="nav center"><a href="contents.html">Table of Contents</a></span>
+    <span class="nav right"><a href="linearSearch.html">Linear search &rarr;</a></span>
+</div>
+
+<div id="content">
+
+    <p>
+    When a problem cannot be solved by an explicit computation, it can often be solved by
+    a search: finding a telephone number involves searching through a list of names; 
+    finding the prime factors of an integer involves searching for divisors; finding the exit
+    from a maze involves searching for a path to the exit.
+    </p><p>
+    Searches may employ brute force (for example, beginning with the first name in a list and
+    proceeding serially).  Or they may capitalize on the organization of the list to search 
+    in a less time-consuming fashion (for example, by starting at a name's approximate location
+    in a list and proceeding from there).
+    When all else fails, a search may resort to trial and error; even then, it's best to search 
+    intelligently rather than haphazardly, as when trying to find a path out of a maze, and 
+    to backtrack and try again when a search fails.
+    </p><p>
+    The goal of a simple search is to determine whether an item <em>x</em> occurs in a list 
+    <em>a[1], ..., a[n]</em> of items.  If <em>x</em> is in the list, it may be useful to 
+    identify where by producing an index <em>i</em> such that <em>x = a[i]</em>; 
+    this index <em>i</em> indicates, for example, which element <em>a[i]</em> in a list of names
+    must be modified to correct a misspelling or which element <em>b[i]</em> in another list
+    <em>b[1], ..., b[n]</em> contains the telephone number of <em>a[i]</em>.
+    </p><p>
+    More generally, the goal of a search is to determine whether a list contains an item
+    with a particular property (for example, whether a list of words contains one beginning
+    with the letter <em>X</em>) and, if it does, to identify where the item can be found.
+    </p>
+
+    <h2>Search algorithms</h2>
+
+    <p>
+    The first two search algorithms look for items in simple lists.  One is suited
+    to lists whose elements occur in no particular order (for example, a shuffled deck of cards),
+    the other to lists arranged in some specific order (for example, an alphabetized list of names).
+    The other algorithms conduct searches when information is not so neatly arranged in a list.
+    </p>
+
+    <ul>
+        <li><a href="linearSearch.html">Linear search</a>: find (or insert) an element in an unordered list</li>
+        <li><a href="binarySearch.html">Binary search</a>: find (or insert) an element in an ordered list</li>
+        <li><a href="mazeSearch.html"</a>Maze searches</a>
+            <ul>
+                <li>Randomized search for an exit</li>
+                <li>Backtracking search</li>
+                <li>Hand-on-the-wall algorithm</li>
+            </ul>
+        </li>
+    </ul>
+
+
+</div>
+
+<div id="footer">
+    <span class="nav"><a href="privacy.html">Privacy Policy</a></span>
+    <span class="nav center">Stephen J. Garland &copy; 2022. All Rights Reserved.</span>
+    <span class="nav right">
+        <a href-"contents.html">Contents</a>
+        <a href="#">Top of page</a>
+    </span>
+</div>
+
+</body>
+
+</html>

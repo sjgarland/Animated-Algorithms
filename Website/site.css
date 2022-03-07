@@ -1,0 +1,381 @@
+/*** Styles for Animated Algorithms ***/
+
+
+/** HTML elements **/
+
+
+/* The body has a minimum width to accommodate figures in the User Guide. */
+
+body,
+html {
+    margin: 0px;
+    padding: 0px;
+    min-width: 1100px;
+    font-family: Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+
+/* Hyperlinks are blue, without underlining, except as provided below for the header. */
+
+a {
+    color: #4d82b8;
+    text-decoration: none;
+}
+
+
+/* A hyperlink is underlined when the cursor hovers over it */
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* Code is highlighted to increase its visibility. */
+
+code {
+    font-family: "Andale Mono", monospace;
+    color: #556b2f;
+    /* darkolivegreen */
+}
+
+
+/* Extra space after the title of a definition. */
+
+dt {
+    margin-bottom: 10px;
+}
+
+
+/* Extra space after the body of a definition. */
+
+dd {
+    margin-bottom: 20px;
+}
+
+
+/* Headers are not so black, always below any floating figures. */
+
+h1,
+h2,
+h3,
+h4 {
+    color: #606060;
+    clear: both;
+}
+
+
+/* List items have have extra space below */
+
+li {
+    margin-bottom: 10px;
+}
+
+
+/* Increased line spacing in paragraphs */
+
+p {
+    line-height: 24px;
+}
+
+
+/* Tables are indented; text is left-aligned. */
+
+table {
+    margin: 0 60px 0 60px;
+    text-align: left;
+}
+
+
+/* Padding separates table columns. */
+
+td,
+th {
+    padding-right: 50px;
+}
+
+
+/* Lists have extra space at the top */
+
+ul {
+    margin-top: 10px;
+}
+
+
+/*** Sections of a document, each with an id ***/
+
+
+/* For <a href="#" class="hidden">Skip navigation</a>
+  <div id="header"> */
+
+#header {
+    height: 80px;
+    padding: 20px 100px 20px 80px;
+    background-color: #f9f9f9;
+}
+
+
+/* For <img id="logo"> within a header */
+
+#logo {
+    float: left;
+    vertical-align: text-top;
+}
+
+
+/* For <div id="logoTitle"> within a header */
+
+#logoTitle {
+    margin-top: 8px;
+    margin-left: 10px;
+    float: left;
+    font-size: 1.667em;
+    color: #4d82b8;
+    /* rgb(77,130,184), cmyk(58,29,0,28), hsb(210,58,72) */
+}
+
+
+/* For <span id="logoSubtitle"> within a header */
+
+#logoSubtitle {
+    font-size: .7em;
+    margin-top: 6px;
+    color: #505050;
+}
+
+
+/* For <span id="headerTitle"> within a header */
+
+#headerTitle {
+    margin-left: 60px;
+    margin-top: 21px;
+    float: left;
+    color: #505050;
+}
+
+
+/* For <span id="navigation"> within a header */
+
+#navigation {
+    float: right;
+    margin-top: 16px;
+    font-size: 1.5em;
+}
+
+
+/* Extra space separating the navigation links.  Same as for dropdown-label. */
+
+#navigation a {
+    margin-left: 20px;
+}
+
+
+/* Color for the selected navigation link */
+
+#navigation strong {
+    color: #4d82b8;
+    font-weight: normal;
+}
+
+
+/* For navigation at the top of a page in the User Guide. */
+
+#topGuide {
+    padding: 0px 80px 30px 80px;
+    background-color: #f9f9f9;
+    font-style: italic;
+}
+
+
+/* Color for the navigation links and menus */
+
+#navigation a,
+#topGuide a,
+#navigation .dropdown-label {
+    color: #505050;
+}
+
+
+/* For <div id="content"> */
+
+#content {
+    margin: 20px 80px 0px 80px;
+}
+
+
+/* For <div id="footer"> */
+
+#footer {
+    padding: 20px 80px 40px 80px;
+    background-color: #f9f9f9;
+    clear: both;
+}
+
+#footer a {
+    color: #505050;
+    padding-right: 20px;
+}
+
+
+/* For <div class="nav"> with the footer */
+
+.nav {
+    float: left;
+    width: 33.33%;
+}
+
+
+/*** Classes for styling elements in the document ***/
+
+
+/* For <tag class="center"> */
+
+.center {
+    text-align: center;
+}
+
+
+/* For <tag class="hidden"> (mainly to suppress <h1> headers to keep TotalValidator happy) */
+
+.hidden {
+    display: none;
+}
+
+
+/* For <tag class="indent"> */
+
+.indent {
+    padding-left: 30px;
+    margin-right: 30px;
+}
+
+
+/* For <tag class="right"> */
+
+.right {
+    text-align: right;
+}
+
+
+/* For <div class="figure"> */
+
+.figure {
+    text-align: center;
+}
+
+
+/* For <div class="figureLeft"> */
+
+.figureLeft {
+    float: left;
+    margin-left: 50px;
+}
+
+
+/* For <div class="figureRight"> */
+
+.figureRight {
+    float: right;
+    margin-left: 50px;
+}
+
+
+/* Borders for images used in figures */
+
+.figure img,
+.figureRight img {
+    border-width: 4px;
+    border-style: double;
+    border-color: black;
+}
+
+
+/* For <div class="padded"> within figures */
+
+.padded {
+    padding-right: 20px;
+    display: inline-block;
+}
+
+
+/* For <div class="unpadded"> within figures */
+
+.unpadded {
+    display: inline-block;
+}
+
+
+/* For <span class="caption"> */
+
+.caption {
+    margin-top: 5px;
+    display: block;
+    text-align: center;
+}
+
+
+/* For <img class="textOnRight">  */
+
+.textOnRight {
+    float: left;
+    margin: 10px;
+}
+
+
+/* For <div class="vspace"> */
+
+.vspace {
+    margin-top: 20pt;
+}
+
+
+/** For drop-down menu in header **/
+
+.dropdown-label {
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.strong-dropdown-label {
+    cursor: pointer;
+    margin-left: 20px;
+    color: #4d82b8;
+}
+
+.dropdown-label:hover,
+.dropdown-label:focus,
+.strong-dropdown-label:hover,
+.strong-dropdown-label:focus {
+    text-decoration: underline;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    left: -60px;
+    width: 300px;
+    display: none;
+    position: absolute;
+    padding-top: 12px;
+    line-height: 36px;
+    font-size: 1em;
+    background-color: #f9f9f9;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    text-decoration: underline;
+}
+
+.show {
+    display: block;
+}

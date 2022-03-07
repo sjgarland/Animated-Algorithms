@@ -1,0 +1,126 @@
+
+.RH "Newton's method (optional)"
+.pp
+We conclude our discussion of techniques for approximating
+zeroes of functions by seeing how to use ideas from the calculus
+to produce an algorithm that is even faster than the secant
+method.  Recall that in the secant method we approximate a
+function <em>f</em> by a secant and use a zero of this secant to
+approximate a zero of <em>f</em>.  If we can find a straight line that
+is a better approximation to the function <em>f</em> than a secant,
+then we might hope that the intersection of this line with the
+<em>x</em>-axis will be a better approximation to a zero of <em>f</em>.
+.pp
+The best linear approximation to a curve at a point is provided
+by the tangent to that curve.  Hence, given an approximation $x
+sub n$ to a zero <em>z</em> of <em>f</em>, we can compute a new
+approximation $x sub n+1$ by constructing the tangent to the
+graph of <em>f</em> at the point <$x sub n$,\|<em>f</em>($x sub n$)>
+and letting $x sub n+1$ be the point of intersection of this
+tangent with the <em>x</em>-axis (see \*(FR).
+.FS
+.LS
+  |        .  <$x sub n$, <em>f</em>($x sub n$)>
+  |       ./|
+  |     . / |
+  |  .   /  |
+  | .   /   |
+ --.----------
+  |.  $x sub n+1$  $x sub n$
+.LE
+.FE "Approximating a zero of <em>f</em> using a tangent"
+If the tangent is a good approximation to <em>f</em> at $x sub n$,
+then $x sub n+1$ will be a good approximation to a zero of
+<em>f</em>.  If not, then we repeat the process to get a new
+approximation $x sub n+2$.  This method of approximation is
+known as <em>Newton's</em> method.
+.pp
+As we shall see in Section 10.5, Newton's method converges so
+quickly to a zero of <em>f</em> that in each iteration it can
+double the number of accurate digits.  The price we pay for the
+increase in speed of Newton's method over the bisection method
+is in decreased applicability: not only must the function
+<em>f</em> be continuous, but we must be able to compute the slopes
+of tangents to its graph.  In addition, as for the secant
+method, Newton's method may still fail to converge in certain
+special situations (see Exercises 5 and 6).
+.pp
+Methods from calculus enable us to compute the slopes of
+tangents to the graph of a function.  The value
+<em>f</em>\|\(fm(<em>x</em>) of the <em>derivative</em> <em>f</em>\|\(fm of a
+function <em>f</em> gives the slope of the tangent to the graph of
+<em>f</em> at <em>x</em>.  Hence, as in the method of false position
+and the secant method, the point of intersection of the tangent
+is given by the formula
+.BS
+$x sub n+1 ~~=~~ x sub n ~-~ { f(x sub n ) } over { f'  (x sub n ) } ~.$
+.BE
+But to compute $x sub n+1$, we must be able to compute
+<em>f</em>\|\(fm(<em>x</em>).  Fortunately, calculus enables us to
+compute <em>f</em>\|\(fm easily for many functions <em>f</em>.  \*(TR
+lists several rules for computing the derivatives of various
+combinations of simple functions.
+.ds p \(fm
+.ds p1 \|\*p
+.Ts
+.TS
+l l.
+Function	Derivative
+\l'\w'Function'u_'	\l'\w'Derivative'u_'
+
+$x sup n$	$n x sup n-1$
+$sin (x)$	$cos (x)$
+$cos (x)$	$sin (x)$
+$ln (x)$	$1/x$
+$e sup x$	$e sup x$
+<em>f</em>(<em>x</em>)\|+\|<em>g</em>(<em>x</em>)	<em>f</em>\*(p1(<em>x</em>)\|+\|<em>g</em>\*(p1(<em>x</em>)
+<em>cf</em>(<em>x</em>)	<em>cf</em>\*(p1(<em>x</em>)
+<em>f</em>(<em>x</em>)<em>g</em>(<em>x</em>)	<em>f</em>(<em>x</em>)<em>g</em>\*(p1(<em>x</em>)\|+\|<em>f</em>\*(p1(<em>x</em>)<em>g</em>(<em>x</em>)
+<em>f</em>(<em>g</em>(<em>x</em>))	<em>f</em>\*(p1(<em>g</em>(<em>x</em>))<em>g</em>\*(p1(<em>x</em>)
+.TE
+.Te "Rules for computing derivatives"
+.pp
+The function <em>zero</em> in the library <em>newton</em>, displayed
+as \*(PR, uses Newton's method to approximate a zero of a
+function <em>f</em> given both the function <em>f</em> itself and its
+derivative <em>g</em>.  As in the secant method, we terminate the
+approximation process when successive approximations get close
+together or when we reach a maximum number of iterations.  This
+second means of terminating the process is necessary lest there
+be an infinite loop in cases where Newton's method does not
+converge.
+.SP library newton
+To compare Newton's method with the bisection method and with
+the secant method, we modify <em>zeroDemo2</em> to conform to the
+requirements of <em>newton</em>.  The resulting program,
+<em>zeroDemo3</em>, is displayed as \*(PR.
+.SP program zeroDemo3 "" main
+.pp
+\*(PR shows that Newton's method indeed requires fewer
+iterations than the secant method.  But this does not
+necessarily mean that Newton's method is faster than the secant
+method \(em it requires us to find two function values on each
+iteration, whereas the secant method only requires us to find
+one.  When we can compute the derivative of <em>f</em> quickly,
+then Newton's method will outperform the secant method (see
+Exercise 3); when we can't, then we may be better off using the
+secant method even though it requires more iterations.
+.SP program zeroDemo3 "approximations generated by Newton's method" IO
+.RH "Choosing among alternative algorithms"
+.pp
+For most applications, the bisection method is the most reliable
+algorithm for approximating a zero of a function.  It may be
+slower than the secant method or Newton's method, but it is
+guaranteed to work.  Furthermore, it is not all that slow.  So
+why have we bothered developing two further algorithms?
+.pp
+We have done so since special circumstances may warrant the
+choice of more sophisticated approximation algorithms.  In the
+next section, for example, we shall see how to simulate the
+motion of various bodies by approximating their positions at
+successive moments in time.  Using these techniques, we can
+generate video displays of a spacecraft traveling to the moon
+or of balls colliding on a billiard table.  To keep these
+displays moving at the appropriate speed, we must be able to
+perform many approximations very quickly.  Hence the need for
+efficient algorithms.

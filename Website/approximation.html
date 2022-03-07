@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>Animated Algorithms: Approximation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="site.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="site.js"></script>
+</head>
+
+<body>
+
+<a href="#" class="hidden">Skip navigation</a>
+<div id="header">
+    <img id="logo" src="images/logo.png" alt="Animated Algorithms logo">
+    <div id="logoTitle">Animated Algorithms: Approximation
+        <div id="logoSubtitle">Stephen J. Garland</div>
+    </div>
+    <span id="navigation">
+        <a href="site.html">Home</a>
+        <a href="overview.html">Overview</a>
+        <a href="contents.html">Table of Contents</a>
+        <a href="about.html">About</a>
+    </span>
+</div>
+
+<div id="topGuide">  <!-- Insert navigation links here. -->
+    <span class="nav">&nbsp;</span>
+    <span class="nav center"><a href="contents.html">Table of Contents</a></span>
+    <span class="nav right"><a href="overview.html">Overview &rarr;</a></span>
+</div>
+
+<div id="content">
+
+    <p>
+    Exact answers to questions are the most satisfying, provided we
+    can get them.  But often exact answers are impossible or
+    extremely difficult to obtain, and we may be willing to settle
+    for approximate answers instead.  The fact that we cannot write
+    down exact decimal representations for irrational numbers such
+    as $pi$ causes us little difficulty: for most purposes it is
+    enough to know that $pi$ is approximately 3.14159265.  And to
+    win a prize for counting the number of jelly beans in a large
+    jar, we need only estimate that number more accurately than our
+    competitors.
+    </p><p>
+    Approximation, then, helps us obtain answers that are good
+    enough for the need at hand.  To illustrate the general nature
+    of approximations, we develop several algorithms
+    for approximating zeroes of functions.  Exercises suggest some
+    algorithms for approximating other interesting values.
+    </p>
+
+    <h2>Zeroes of functions</h2>
+
+    <p>
+    Many problems can be solved by finding a zero of a function
+    <em>f</e,≈>, that is, by finding a value <em>x</em> such that
+    <em>f</em>(<em>x</em>)\|\|=\|\|0.  In Chapter 4, we found the
+    effective interest rate for a loan by finding a zero of a
+    function <em>f</em> such that <em>f</em>(<em>r</em>) is the final balance
+    of the loan when the interest rate is <em>r</em>.  For another
+    example, to find the square root of 2, we can define a function
+    <em>f</em> by letting <em>f</em>(<em>x</em>)\ = $x sup 2 ~-~ 2$ and then
+    find a zero of <em>f</em>.
+    </p><p>
+    More generally, we can reduce the problem of computing the
+    inverse of a one-to-one function to the problem of computing
+    zeroes of related functions.  If <em>g</em> is a one-to-one
+    function (i.e., if <em>g</em>(<em>x</em>)\|\|=\|\|<em>g</em>(<em>y</em>)
+    implies <em>x</em>\|\|=\|\|<em>y</em>), then the <em>inverse</em> of
+    <em>g</em> is that function $g sup -1$ such that
+    
+    .BS
+    $g sup -1$(<em>y</em>) = <em>x</em>   if and only if   <em>g</em>(<em>x</em>)\|\|=\|\|<em>y</em>
+    .BE
+    (notice that <em>g</em> must be one-to-one for $g sup -1$ to be a
+    function).  Now computing $g sup -1$(<em>y</em>) is equivalent to
+    finding a zero of the function $g sub y$, where $g sub y (x)$\ =
+    $g(x) ~-~ y$.  Since the square root function is the inverse of
+    the square function, computing square roots is just a special
+    case of computing inverses of functions.
+    </p><p>
+    For yet another example, students who have studied calculus can
+    reduce the problem of finding the maximum or minimum value of a
+    function to the problem of finding the zeroes of the derivative
+    of that function.  Thus one technique, namely finding the zeroes
+    of functions, helps solve many seemingly disparate problems.
+
+    <h2>Exercises</h2>
+    
+   <ol>
+    <li>
+    Write a program to approximate a zero of a function by trisection.
+    Compare the execution time of this algorithm with that of the bisection 
+    algorithm when approximating zeroes of the functions <em>x<sup>2</sup>-2</em>
+    and <em>sin(x)</em>.
+    </li><li>
+    Write a program to approximate a zero of a function by the
+    method of false position.  Compare the execution time of this
+    algorithm with that of the bisection algorithm when
+    approximating zeroes of the functions <em>x<sup>2</sup>-2</em>
+    and <em>sin(x)</em>.
+    </li><li>
+    One way to approximate the square root of a real number <em>r</em>
+    is to start with an initial approximation <em>r<sub>0</sub></em> equal to
+    <em>r/2</em> and then to produce a sequence of better
+    approximations by letting <em>r<sub>n+1</sub></em> be
+    $1 over 2 ( r sub n ^+^ r over { r sub n } )$.
+    <ul>
+        <li>
+    Compare the efficiency of this algorithm with those that
+    approximate zeroes of the function $x sup 2 ~-~ r$ using the
+    procedures in <em>bisect</em>, <em>secant</em>, and <em>newton</em>.
+    </li><li>
+    Show that this algorithm produces the same sequence of
+    approximations as does Newton's method.
+    </li>
+    </ul>
+    <li>
+    Newton's method is very powerful if used with care, but it has
+    its pitfalls.  To illustrate these difficulties consider the
+    function
+    .BS
+    $f(x) ~=~ x sup 3 ^-^ 5x ^+^ 3$
+    .BE
+    Use Newton's method to approximate zeroes of this function
+    starting with the following initial approximations, counting the
+    number of iterations required for the method to converge.
+    .BS
+    -2,  0,  1.2,  1.25,  1.3,  1.4,  2
+    .BE
+    Since <em>f</em> is a cubic, you will not be surprised to notice
+    that it has three separate zeroes.  However you will notice that
+    initial approximations which are very close together can lead to
+    different zeroes in an apparently haphazard manner, and the
+    number of iterations needed to find a given zero varies
+    considerably.
+    </li><li>
+    Show that Newton's method diverges when used to approximate a
+    zero of the function $f(x) ~=~ e sup -x ln(x)$.
+    .EX 6.  
+    Find a function <em>f</em> and an initial approximation to a zero
+    of <em>f</em> such that Newton's method oscillates when used to
+    approximation a zero of <em>f</em> starting with that
+    approximation.
+    .EX 7.
+    Write a program to input the coefficients <em>a</em>, <em>b</em>,
+    <em>c</em>, <em>d</em> of a cubic polynomial $p(x) ~=~ ax sup 3 ^+^ bx
+    sup 2 ^+^ cx ^+^ d$ and to determine, within an accuracy of $10
+    sup -6$ and without any further input, all zeroes of $p$.
+    Use one of the following methods when $a ~!=~ 0$.
+    .EP (a)
+    First locate one real zero <em>z</em> of <em>p</em> (which must exist
+    since any polynomial of odd degree has at least one real zero).
+    Then find a quadratic polynomial <em>q</em> such that $p(x) ~=~
+    (x^-^z)q(x)$ by synthetic division.  The remaining zeroes of
+    <em>p</em> are the zeroes of <em>q</em>.
+    .EP (b)
+    Alternatively, find the relative maxima, minima, and points of
+    inflection of <em>p</em> by finding the zeroes of its derivative.
+    Use this information to determine the number and location of the
+    zeroes of <em>p</em>.
+    .EX 8.
+    Is the bisection method or Newton's method more appropriate for
+    use in the program you wrote for Exercise 7?  Why?
+    .EX 9.
+    Generalize your program for Exercise 7(b) to input the
+    coefficients of an arbitrary polynomial and then determine the
+    number and location of all zeroes of that polynomial.  (Hint:
+    use recursion to reduce the problem of finding the zeroes of a
+    polynomial of degree <em>n</em> to the problem of finding the
+    zeroes of the derivative of that polynomial, which itself is a
+    polynomial of degree <em>n</em>\^\(mi\^1).
+    .EX 10.
+    Devise an algorithm for approximating the maximum value of a
+    function on an interval.
+    .EX 11.
+    Computers can approximate the values of mathematical functions
+    such as <em>exp</em> and <em>sin</em> using infinite series.
+    Investigate how many terms in each of the following series must
+    be summed to produce approximations that are within $10 sup -6$
+    of the correct value when 0\|\|\(<=\|\|<em>x</em>\|\|\(<=\|\|1.
+    .EP (a)
+    $sin (x) ~~=~~ x ~-~ { x sup 3 } over 3! ~+~ { x sup 5 } over 5!
+    ~-~ { x sup 7 } over 7! ~+~ ...$
+    .EP (b)
+    $exp (x) ~~=~~ 1 ~+~ x ~+~ { x sup 2 } over 2! ~+~ { x sup 3 }
+    over 3! ~+~ { x sup 4 } over 4! ~+~ ...$
+    .EX 12.
+    To approximate the area under a curve, we can divide that area
+    up into a number of strips, approximate the area of each strip,
+    and add the approximations together.  \*(FR illustrates three
+    methods for performing such an approximation.
+    .FS
+    .LS  
+             ---
+         ---|   | 
+        |   |   | 
+     ---|   |   |---              
+    |   |   |   |   |---
+    |   |   |   |   |   | 
+    |   |   |   |   |   | 
+    ---------------------
+    $x sub 0$ $x sub 1$  $x sub 2$   ...   $x sub n$,     $x sub i+1 ~=~ x sub i ^+^ w$
+    .LE
+    
+    Rectangle approximation  =  $w sum from i=0 to n-1 f( x sub i )$
+    
+             
+    .LS
+            |   
+        |   |   
+        |   |   
+    |   |   |   |   
+    |   |   |   |   |   | 
+    |   |   |   |   |   | 
+    ---------------------
+    $x sub 0$ $x sub 1$  $x sub 2$   ...   $x sub n$,     $x sub i+1 ~=~ x sub i ^+^ w$
+    .LE
+    
+    Trapezoid approximation  =  $w sum from i=0 to n-1 { 1 over
+    2 ( f ( x sub i ) ^+^ f ( x sub i+1 ) ) }$
+    
+    
+    .LS
+            |   
+        |   |   
+        |   |   
+    |   |   |   |   | 
+    |   |   |   |   |   | 
+    |   |   |   |   |   | 
+    ---------------------
+    $x sub 0$ $x sub 1$  $x sub 2$   ...   $x sub n$,     $x sub i+1 ~=~ x sub i ^+^ w$
+    .LE
+    
+    Midpoint approximation  =  $w sum from i=0 to n-1 f ( x
+    sub i ^+^ w over 2 )$
+    .FE "Approximations to the area under a curve"
+    .EP (a)
+    Define three functions beginning with the header
+    .(b L
+    .ta \w'\f3function</em> <em>area</em>( \f3function</em> 'u, \
+    +\w'<em>f</em>( <em>x</em> : <em>real</em> ) 'u, \
+    +\w': <em>integer</em> ) : <em>real</em>;     'u, \
+    +\w'{ number of subintervals 'u
+    \f3function</em> <em>area</em>( \f3function</em>	<em>f</em>( <em>x</em> : <em>real</em> ) : <em>real</em>;
+        <em>a</em>, <em>b</em>	: <em>real</em>;         	{ endpoints of interval	}
+        <em>n</em>	: <em>integer</em> ) : <em>real</em>;	{ number of subintervals	}
+    .)b
+    to approximate the area under the graph of <em>f</em> on the
+    interval (<em>a</em>,\|<em>b</em>) by dividing it into <em>n</em>
+    strips and using the rectangle, trapezoid, and midpoint methods.
+    .EP (b)
+    Use these functions to approximate the area under the curves
+    $x sup 2$,  $ 2 x sup 3 ^-^ 3 x sup 2 ^+^ 4$,  $sin (x)$, and $e
+    sup x$ on the interval (0,\|2).
+    .EP (c)
+    How many subdivisions do each of the three methods require to
+    approximate the area under the curves in (b) to within $10 sup
+    -6$?
+    
+</div>
+
+<div id="footer">
+    <span class="nav">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href-"contents.html">Table of Contents</a>
+</span>
+    <span class="nav center">Stephen J. Garland &copy; 2022. All Rights Reserved.</span>
+    <span class="nav right"><a href="#">Top of page</a></span>
+</div>
+
+</body>
+
+</html>
+

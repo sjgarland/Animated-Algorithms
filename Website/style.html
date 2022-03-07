@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <head><meta charset="ansi_x3.110-1983">
+    <title>Animated Algorithms: Programming Style</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div id="header">
+    <a href="index.html"><img id="logo" src="images/logo.png" alt="logo"></a>
+    Animated Algorithms
+</div>
+
+<div id="content">
+
+<h1>Programming style</h1>
+
+<p>
+The few programs we have written so far are short and simple.
+Nonetheless it is instructive to examine them further before
+going on to write longer and more complicated ones.  Much good
+advice about programming can be distilled from these
+examples&mdash;advice that will help keep more ambitious undertakings as
+short and simple as possible.
+</p><p>
+The single most important measure of the quality of a computer
+program is whether or not it works.  A program may be a work of
+art, embody the most modern techniques, and consume practically
+no resources at all; but if it doesn't work, it is of little
+use.  Hence it would seen that other considerations such as
+structure, style, simplicity, or even neatness, are of lesser
+importance.  Yet experience has shown just the opposite: these
+considerations must be taken into account to produce working,
+high-quality programs.  Some of the reasons for this are as
+follows.
+</p>
+<ul>
+<li>
+Almost all programs contain errors initially.  Well-written
+programs excel in two ways.  They are less likely to contain
+errors in the first place, and those errors they do contain are
+easier to locate and correct than errors hidden in
+poorly-written programs.
+</li><li>>
+For a program to be used with confidence, not only must it work,
+but potential users must be convinced that it works.  While
+evidence of a program having worked in the past is sometimes
+convincing, it does not guarantee that the program will work in
+untried circumstances.  Nothing builds confidence like a
+well-organized, coherent, and easy-to-understand program.
+</li><li>>
+Programs are rarely used only once.  Future users of a program
+(including the original programmer) must be able to read the
+program in order to understand what it is supposed to do and how
+it does it.
+</li><li>>
+Few programs are never changed.  It is far easier and safer to
+modify a well-written program than a poorly-written one.
+</li><li>>
+A well-written program reflects a well-conceived design; such a
+program is almost always simpler and more efficient than a
+hastily-written or jumbled one.
+</li>
+</ul>
+<p>
+For these reasons, the task of writing a computer program should
+be taken as seriously as the task of writing English prose.
+Programs and prose are both means of communication.  Authors
+must think first about what they wish to communicate; then they
+must think about how to organize and express ideas clearly and
+logically.  Good programs, like good prose, should be a pleasure
+to read.
+</p><p>
+As with matters of English style, style in programming is
+subjective.  Nonetheless, there are rules you can follow that
+almost always lead to better style and that are a good
+foundation for developing your own personal style.  Following
+are some of these rules.
+</p>
+
+<h2>Documentation</h2>
+
+<p>
+Comment your program well.
+Use one or more lines of comments to introduce your program.
+The programs in this book all begin with short descriptions of
+what they do.  Comments at the beginning of your programs should
+also include such other information as your name, the date on
+which you wrote the program, the date and reasons for any
+modifications you made to the program, directions for using the
+program, etc.  These are all things you or someone else may wish
+to know when reading the program.  Don't trust them to memory!
+</p><p>
+Comment your program as you go.  If you change your program,
+change your comments too.  Nothing destroys comprehensibility so
+much as inaccurate comments or comments that were never written.
+Try writing your comments first; then write your program to do
+what the comments say.
+</p><p>
+Express your comments in concise, coherent English.  Spell
+properly and correct typing mistakes.  Don't think that typing
+mistakes inside comments are unimportant and can be ignored or
+corrected later.  All too often, later turns out to be never,
+and misspelled comments unnecessarily decrease the patience of a
+reader trying to understand the program.
+</p><p>
+Don't overcomment.  A few well-chosen comments convey more
+information than a rambling dissertation.  Consider what your
+reader needs to know, not just what you want to say
+</p>
+
+<h2>Displaying programs</h2>
+
+<p>
+Display your program in a fashion that reflects its structure
+and makes that structure pleasing to the eye.  Indent variable
+declarations, the bodies of programs, and other structures in a
+consistent fashion such as the one used in this book.  Use a
+utility program, sometimes known as a <em>pretty printer</em>,
+</p><p>
+that indents your programs automatically if you have one
+available.  Indentation makes it easier for a reader to
+discern the structure of your program and to focus attention on a
+particular section of that structure.
+</p><p>
+In longer programs, use blank lines to separate sections of
+the program and to avoid straining the reader's eyes.
+</p><p>
+Use adequate blank space within program lines and use it
+consistently.  Use spaces around keywords, around the assignment
+operator, and in long expressions.  Use a blank space at the
+beginning and end of each comment.
+Choose a convention that improves readability and stick to it.
+</p>
+
+<h2>Coding style</h2>
+
+<p>
+Keep lines in your program a reasonable length.  Break up an
+expression or a line that is too complicated&mdash;if it's too
+long to write compactly, it's also too long to be understood in
+a glance.
+</p><p>
+Choose meaningful, but succinct, names for your variables and
+other identifiers.  If you use a variable for an obvious purpose
+in several adjoining statements, then give it a single-character
+name; if you use it to communicate information among distant
+parts of a program, give it a longer name that describes its
+use.
+</p><p>
+Assign names to constants that may change when you modify the
+program.  Use these symbolic constants instead of the constants
+themselves in program statements.
+</p><p>
+Adhering to these rules will serve us well as we begin to write
+programs.  Further rules aimed at enhancing programming
+style occur in Sections 3.6 and 4.7.
+</p>
+
+</div>
+<div id="footer">Stephen J. Garland &copy; 2022. All Rights Reserved.</div>
+</body>
+</html>
